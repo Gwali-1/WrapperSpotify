@@ -6,6 +6,7 @@ import json
 import datetime
 
 
+load_dotenv()
 
 
 now = datetime.datetime.now()
@@ -14,7 +15,44 @@ print(now)
 future  = now + datetime.timedelta(seconds=60)
 print(future)
 
-# load_dotenv()
+
+class Client:
+
+    credentials = None
+    client_id=None
+    client_secrete=None
+    expire_time = None
+
+
+    def __init__(self, credentials):
+        self.credentials = credentials
+        if not isinstance(self.credentials,dict):
+           raise Exception("Pass credientials as an object")
+
+        self.client_id = self.credentials["ClientID"]
+        self.client_secrete = self.credentials["ClientSecret"]
+
+
+
+
+        def get_auth_token(self):
+            pass
+
+
+        def check_token_expiry(self):
+            pass
+
+        def fetch_tracks(self):
+            pass
+
+        def fetch_playlist(self):
+            pass
+
+        
+
+
+x = Client({"ClientID":os.getenv("ClientID"),"ClientSecret":os.getenv("ClientSecret")})
+
 
 # config = dotenv_values(".env")
 
