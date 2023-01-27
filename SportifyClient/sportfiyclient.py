@@ -9,7 +9,7 @@ import datetime
 load_dotenv()
 
 
-class SpotifyClient:
+class Client:
     """This is a class that defines methods and attributes used to establish a connection with sportify, generating authorization token
     and making request to specific endpoints 
     """
@@ -193,25 +193,10 @@ class SpotifyClient:
 
 
 
-    def __repr__(self):
-        return "<Sportify connected client instance>"
+    # def __repr__(self):
+    #     return "<Sportify connected client instance>"
 
 
         
 
 
-
-x = SpotifyClient({"ClientID":os.getenv("ClientID"),"ClientSecret":os.getenv("ClientSecret")})
-
-items = x.track_search("non living thing",limit=2)
-artist = x.artist_search("darkovibes", limit=1,filter=True)
-print(artist)
-
-# options = {
-#     "seed_artists":"4NHQUGzhtTLFvgF5SZesLK",
-#     "seed_genres":"classical,country",
-#     "seed_tracks":"0c6xIDDpzE81m2q797ordA",
-#     "limit":2
-# }
-# related  = x.get_recommendations(options)
-# print(related)
