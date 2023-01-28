@@ -8,6 +8,7 @@ import pytest
 load_dotenv()
 
 
+
 def test_get_auth_token_wit_wrong_credentials():
     credentials = {"ClientID":"wrong","ClientSecret":"wrong"}
     sportify = Client(credentials)
