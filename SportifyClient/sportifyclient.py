@@ -22,7 +22,7 @@ class Client:
 
         self.__client_id = self.credentials["ClientID"]
         self.__client_secrete = self.credentials["ClientSecret"]
-        self.__expire_time = None
+        self.expire_time = None
         self.__token= None
         
 
@@ -56,15 +56,16 @@ class Client:
         if response.status_code in range(200,299):
             response_object = response.json()
             self.__token = response_object["access_token"]
-            self.__expire_time = self._get_expire_time(response_object["expires_in"])
+            self.expire_time = self._get_expire_time(response_object["expires_in"])
+            return None
         else:
-            raise Exception(f"{response.json()}\ncheck that client credentials are valid")
+            return response.json() 
 
 
     def token_expired(self):
         """ returns whether token is expired or not"""
         now = datetime.datetime.now()
-        return self.__expire_time < now
+        return self.expire_time < now
 
 
     def track_search_filter(self,data):
@@ -75,7 +76,8 @@ class Client:
                 "name":item["name"],
                 "preview_url":item["preview_url"],
                 "artist_profile":item["artists"][0]["external_urls"]["spotify"],
-                "popularity":item["popularity"]
+                "popularity":item["popularity"],
+                "track_id":item["id"]
             }
             results.append(track_info)
 
