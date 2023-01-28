@@ -27,13 +27,13 @@ pip install WrapperSpotify
 - initialize client object 
 - call method with `artist name`
 ```bash
-    from WrapperSpotify import wrapperspotify
+    import WrapperSpotify 
     credentials = {
         "ClientID":os.getenv("ClientID"),
         "ClientSecret":os.getenv("ClientSecret")
     }
 
-    client = wrapperspotify.Client(credentials)
+    client = WrapperSpotify.Client(credentials)
     results = client.artist_search("artist name")
     
 ```
@@ -65,13 +65,13 @@ will return results for 5 differents artist which matches your artist name argum
 - initialize client object 
 - call method with `track name`
 ```bash
-from WrapperSpotify import wrapperspotify
+import WrapperSpotify
 credentials = {
         "ClientID":os.getenv("ClientID"),
         "ClientSecret":os.getenv("ClientSecret")
     }
 
-    client = wrapperspotify.Client(credentials)
+    client = WrapperSpotify.Client(credentials)
     results = client.track_search("track name")
     
 ```
@@ -103,13 +103,13 @@ check [spotify api docs ](https://developer.spotify.com/documentation/web-api/re
 - initialize client object 
 - call method with `artist id`
 ```bash
-    from WrapperSpotify import wrapperspotify
+    import WrapperSpotify
     credentials = {
         "ClientID":os.getenv("ClientID"),
         "ClientSecret":os.getenv("ClientSecret")
     }
 
-    client = wrapperspotify.Client(credentials)
+    client = WrapperSpotify.Client(credentials)
     results = client.get_related_artists("artist id")
     
 ```
@@ -127,13 +127,13 @@ check [api docs ](https://developer.spotify.com/documentation/web-api/reference/
 - initialize client object 
 - call method with `dictionary containing query parameter keys and their values`
 ```bash
-    from WrapperSpotify import wrapperspotify
+    import WrapperSpotify
     credentials = {
         "ClientID":os.getenv("ClientID"),
         "ClientSecret":os.getenv("ClientSecret")
     }
 
-    client = wrapperspotify.Client(credentials)
+    client = WrapperSpotify.Client(credentials)
 
     options =  {
         "seed_artists":"5K4W6rqBFWDnAN6FQUkS6x",
@@ -158,13 +158,13 @@ check [api docs ](https://developer.spotify.com/documentation/web-api/reference/
 - create a dictionary with client credentials
 - initialize client object 
 ```bash
-    from WrapperSpotify import wrapperspotify
+    import WrapperSpotify
     credentials = {
         "ClientID":os.getenv("ClientID"),
         "ClientSecret":os.getenv("ClientSecret")
     }
 
-    client = wrapperspotify.Client(credentials)
+    client = WrapperSpotify.Client(credentials)
     results = client.get_avilable_genres()
     
 ```

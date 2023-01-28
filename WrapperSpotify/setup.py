@@ -2,12 +2,13 @@ from setuptools import setup, find_packages
 
 setup(
     name="WrapperSpotify",
-    version="1.0.3",
+    version="1.0.6",
     packages=find_packages(),
     install_requires=[
         "requests"
     ],
     include_package_data=True,
+    py_modules=['wrapperspotify'],
     author="Matthew Gwalisam",
     author_email="gwalisam37@gmail.com",
     description="A lightweight python client for the spotify",

@@ -128,6 +128,7 @@ class Client:
 
         if self.__token is None or self.token_expired():
             self.get_auth_token()
+            
         url = "	https://api.spotify.com/v1/search"
         payload = {"q":name,"type":"artist","limit":limit}
         headers= self.get_auth_header()
