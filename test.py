@@ -1,4 +1,4 @@
-from SpotifyClient.spotifyclient import Client
+from WrapperSpotify.wrapperspotify import Client
 import os
 from dotenv import load_dotenv,dotenv_values
 import datetime

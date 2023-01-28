@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="SpotifyClient",
-    version="1.0.0",
+    name="WrapperSpotify",
+    version="1.0.3",
     packages=find_packages(),
     install_requires=[
         "requests"
@@ -12,6 +12,7 @@ setup(
     author_email="gwalisam37@gmail.com",
     description="A lightweight python client for the spotify",
     long_description=open('README.md').read(),
+    url='https://github.com/Gwali-1/spotifyclient.git',
     long_description_content_type='text/markdown',
     license="MIT",
     classifiers=[

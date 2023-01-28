@@ -1,0 +1,9 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+WrapperSpotify.egg-info/PKG-INFO
+WrapperSpotify.egg-info/SOURCES.txt
+WrapperSpotify.egg-info/dependency_links.txt
+WrapperSpotify.egg-info/requires.txt
+WrapperSpotify.egg-info/top_level.txt
