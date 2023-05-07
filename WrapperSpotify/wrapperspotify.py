@@ -3,11 +3,9 @@ import base64
 import datetime
 
 
-
-
 class Client:
     """This is a class that defines methods and attributes used to establish a connection with sportify, generating authorization token
-    and making request to specific endpoints 
+    and making request to specific endpoints
     """
 
 
@@ -20,9 +18,9 @@ class Client:
         self.__client_secrete = self.credentials["ClientSecret"]
         self.expire_time = None
         self.__token= None
-        
 
-    
+
+
 
     def get_token_header(self):
         encoded_string = base64.b64encode(f"{self.__client_id}:{self.__client_secrete}".encode()).decode()
@@ -33,8 +31,8 @@ class Client:
         if self.__token is  None or self.token_expired():
                 self.get_auth_token()
                 return {"Authorization":f"Bearer {self.__token}", "Content-Type":"application/json","Accept": "application/json"}
-            
-        return {"Authorization":f"Bearer {self.__token}", "Content-Type":"application/json","Accept": "application/json"}       
+
+        return {"Authorization":f"Bearer {self.__token}", "Content-Type":"application/json","Accept": "application/json"}
 
 
     def _get_expire_time(self,time):
@@ -55,7 +53,7 @@ class Client:
             self.expire_time = self._get_expire_time(response_object["expires_in"])
             return None
         else:
-            return response.json() 
+            return response.json()
 
 
     def token_expired(self):
@@ -96,7 +94,7 @@ class Client:
 
         return results
 
-            
+
 
 
     #____________endpoint methods___________#
@@ -107,14 +105,14 @@ class Client:
 
         if self.__token is None or self.token_expired():
             self.get_auth_token()
-            
+
         url = "	https://api.spotify.com/v1/search"
         payload = {"q":name,"type":"track","limit":limit}
         headers= self.get_auth_header()
         response = requests.get(url, params=payload, headers=headers)
         if response.status_code == 200:
             data = response.json()  #filter output for desired information
-            if not filter: # if 
+            if not filter: # if
                 return data
             return self.track_search_filter(data["tracks"]['items'])
         else:
@@ -134,13 +132,13 @@ class Client:
         response = requests.get(url, params=payload, headers=headers)
         if response.status_code == 200:
             data = response.json()  #filter output for desired information
-            if not filter: # if 
+            if not filter: # if
                 return data
             return self.artist_search_filter(data["artists"]['items'])
         else:
             return response.json()
 
-       
+
 
     def get_related_artists(self,artist_id):
         if self.__token is None or self.token_expired():
@@ -167,7 +165,7 @@ class Client:
         for key in required:
             if key not in options.keys():
                 raise Exception(f"missing required key, '{key}' ")
-    
+
         headers = self.get_auth_header()
         response = requests.get(url,headers=headers,params=options)
         return response.json()
@@ -192,6 +190,6 @@ class Client:
     #     return "<Sportify connected client instance>"
 
 
-        
+
 
 
